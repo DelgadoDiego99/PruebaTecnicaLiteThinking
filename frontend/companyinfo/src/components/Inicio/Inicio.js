@@ -1,5 +1,4 @@
 import React from "react";
-import Cabecera from "../Navbar/Navbar";
 import Formulario from "../Formulario/Formulario";
 import { Container } from "react-bootstrap";
 
@@ -9,7 +8,6 @@ function Inicio(){
 
     return(
         <>
-            <Cabecera/>
             <Container className="margins">
                 <Formulario/>
             </Container>

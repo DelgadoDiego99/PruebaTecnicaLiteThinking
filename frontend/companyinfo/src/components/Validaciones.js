@@ -7,7 +7,7 @@ export const validarNumeroTelefono = (numero) => {
 }
 
 export const validarNumeroNIT = (numero) => {
-    if (parseInt(numero).toString().length < 12){
+    if (parseInt(numero).toString().length < 10){
         return false
     }else{
         return true
