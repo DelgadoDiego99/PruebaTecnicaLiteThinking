@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import django_heroku
+import dj_database_url
 from pathlib import Path
 import os
 
@@ -81,13 +82,10 @@ WSGI_APPLICATION = 'liteThinking.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['Database'],
-        'USER': os.environ['User'],
-        'PASSWORD': os.environ['Password'],
-        'HOST': os.environ['Host'],
-        'PORT': os.environ['Port'],
     }
 }
+
+DATABASES['default'] = dj_database_url.config()
 
 """DATABASES = {
     'default': {
