@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from corsheaders.defaults import default_headers
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,11 +82,11 @@ WSGI_APPLICATION = 'liteThinking.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dseonbm8t6bua',
-        'USER': 'aotrnzududqtsz',
-        'PASSWORD': '742507eeac1870db8f91a59a3e38cfad66d7443d17cd38f422c698cbac67a147',
-        'HOST': 'ec2-3-213-228-206.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'NAME': os.environ['Database'],
+        'USER': os.environ['User'],
+        'PASSWORD': os.environ['Password'],
+        'HOST': os.environ['Host'],
+        'PORT': os.environ['Port'],
     }
 }
 
@@ -137,6 +139,7 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-]
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = list(default_headers) + ['X-CSRFToken']
+CORS_EXPOSED_HEADERS = ['Set-Cookie']
