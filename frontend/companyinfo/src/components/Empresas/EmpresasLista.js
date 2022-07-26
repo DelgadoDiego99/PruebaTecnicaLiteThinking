@@ -14,8 +14,6 @@ function EmpresasLista(){
         obtenerEmpresas().then(setEmpresas);
     }, []);
 
-    console.log(empresas)
-
     let listaEmpresas = empresas.slice(0,6).map(element => {
         return (<Empresa key= {element.url}
         nombre={element.NombreEmpresa} 
