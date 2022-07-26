@@ -13,7 +13,7 @@ function Empresa(props){
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                     <ListGroupItem><b>Dirección: </b>{props.direccion}</ListGroupItem>
-                    <ListGroupItem><b>NIT: </b>{props.nit}%</ListGroupItem>
+                    <ListGroupItem><b>NIT: </b>{props.nit}</ListGroupItem>
                     <ListGroupItem><b>Telefono: </b>{props.telefono}</ListGroupItem>
                 </ListGroup>
                 <Card.Body>

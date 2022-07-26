@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import obtenerEmpresas from './obtenerEmpresas';
 import Empresa from './Empresa';
+import Cabecera from '../Navbar/Navbar';
 
 import './EmpresasLista.css';
 
@@ -25,11 +26,15 @@ function EmpresasLista(){
     });
 
     return(
-        <div className="responsive">
+        
+        <>
+            <Cabecera/>
+            <Container className="margins">
             <Row xs={1} md={2} className="g-4">
                 {listaEmpresas}
             </Row>
-        </div>
+            </Container>
+        </>
     );
 }
 
