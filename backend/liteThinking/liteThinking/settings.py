@@ -39,14 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     #'django.contrib.staticfiles',
     'empresa.apps.EmpresaConfig',
-    'corsheaders',
+    "corsheaders",
     'rest_framework',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
