@@ -1,1 +1,1 @@
-export let API_URL = "http://127.0.0.1:8000/empresa";
+export let API_URL = "https://companyinfodb.herokuapp.com/empresa";
