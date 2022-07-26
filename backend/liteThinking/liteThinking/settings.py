@@ -139,7 +139,7 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    "*",
 ]
 
 CORS_ALLOW_METHODS = [
@@ -148,3 +148,12 @@ CORS_ALLOW_METHODS = [
     "POST",
     "PUT",
 ]
+
+CORS_ALLOW_HEADERS = (
+        'x-requested-with',
+        'content-type',
+        'accept',
+        'origin',
+        'authorization',
+        'x-csrftoken'
+)
