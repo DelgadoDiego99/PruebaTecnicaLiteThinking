@@ -11,7 +11,7 @@ function Footer(){
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
                             <h6>Acerca</h6>
-                            <p class="text-justify">Becas.com <i>TU FUTURO </i> es una página web donde se pueden encontrar multitud de becas a las que se puede acceder su información para que la elección de una beca sea más fácil.</p>
+                            <p class="text-justify">CompanyInfo <i>INFORMACION DE EMPRESAS</i> es una página web donde se pueden almacenar la información de muchas empresas para luego ser visualizadas</p>
                         </div>
                     </div>
                 </div>
