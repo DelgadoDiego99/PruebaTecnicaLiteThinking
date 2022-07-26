@@ -8,5 +8,5 @@ from django.db import models
 class Empresa(models.Model):
     NombreEmpresa = models.CharField(max_length=50)
     Direccion = models.CharField(max_length=100)
-    NIT = models.CharField(max_length=10)
+    NIT = models.CharField(max_length=12)
     Telefono = models.CharField(max_length=10)
