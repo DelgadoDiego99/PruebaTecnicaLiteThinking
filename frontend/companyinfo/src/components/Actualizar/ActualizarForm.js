@@ -1,14 +1,22 @@
-import React from "react";
-import { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Container, Form, Button } from "react-bootstrap";
 import { validarNumeroTelefono, validarNumeroNIT } from "../Validaciones";
-import PostEmpresa from "./postEmpresa";
+import { obtenerUnaEmpresa } from "../Empresas/obtenerEmpresas";
+import { API_URL } from "../url";
+import PutEmpresa from "./putEmpresa";
 
-import './Formulario.css';
+import './ActualizarForm.css';
 
-function Formulario(){
+function ActualizarForm(){
+
+    let id = window.location.href;
+    id = id.replace("http://192.168.1.24:3000/empresas/",'');
 
     const [informacion, setInformacion] = useState(0);
+
+    useEffect(() => {
+        obtenerUnaEmpresa(API_URL + id).then(setInformacion)
+    });
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -16,6 +24,7 @@ function Formulario(){
 
         if(!(validarNumeroNIT(event.target.elements.formNumeroNIT.value))){
             alert("Ingrese un número NIT válido");
+            console.log(event.target.elements.formNumeroNIT.value);
             validated = false;
         }
         if(!(validarNumeroTelefono(event.target.elements.formTelefonoEmpresa.value))){
@@ -29,19 +38,19 @@ function Formulario(){
                 NIT: event.target.elements.formNumeroNIT.value,
                 Telefono: event.target.elements.formTelefonoEmpresa.value,
             };
-            setInformacion(data);
-            PostEmpresa(informacion)
+            PutEmpresa(data, id)
         }
     };
 
     return(
-        <>
+        <Container>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formNombreEmpresa">
                     <Form.Label>Nombre de la empresa</Form.Label>
                     <Form.Control 
                         type="text" 
                         placeholder="Ingrese el nombre de la empresa" 
+                        defaultValue={informacion.NombreEmpresa}
                         required
                     />
                 </Form.Group>
@@ -50,6 +59,7 @@ function Formulario(){
                     <Form.Control 
                         type="text" 
                         placeholder="Ingrese la dirección de la empresa" 
+                        defaultValue={informacion.Direccion}
                         required
                     />
                 </Form.Group>
@@ -60,6 +70,7 @@ function Formulario(){
                         minLength="10"
                         maxLength="10"
                         placeholder="Ingrese el número NIT de la empresa" 
+                        defaultValue={informacion.NIT}
                         required
                     />
                     <Form.Text className="text-muted">
@@ -73,6 +84,7 @@ function Formulario(){
                         minLength="10"
                         maxLength="10" 
                         placeholder="Ingrese el número telefónico de la empresa" 
+                        defaultValue={informacion.Telefono}
                         required
                     />
                     <Form.Text className="text-muted">
@@ -80,12 +92,11 @@ function Formulario(){
                     </Form.Text>
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                    Registrar empresa
+                    Actualizar información
                 </Button>
             </Form>
-        </>
+        </Container>
     )
 }
 
-export default Formulario;
-
+export default ActualizarForm;

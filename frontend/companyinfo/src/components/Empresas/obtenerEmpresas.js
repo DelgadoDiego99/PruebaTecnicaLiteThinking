@@ -10,3 +10,9 @@ export default async function obtenerEmpresas(){
     .then(response => response.json())
     .then(data => data);
 };
+
+export async function obtenerUnaEmpresa(URL){
+    return await fetch(URL, requestOptions)
+    .then(response => response.json())
+    .then(data => data);
+};
